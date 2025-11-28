@@ -1,92 +1,41 @@
-I. Tiền xử lý dữ liệu
-1. Thu thập dữ liệu và chuẩn hóa dữ liệu:
-- Đọc dữ liệu -> kiểm tra cấu trúc (columns, type, unique values)
-- Làm sạch dữ liệu 
+I. Data Preprocessing + EDA + Feature Engineering
+1. Tiền xử lý dữ liệu:
+- Làm sạch dữ liệu, xử lý missing, duplicates
+- Chuẩn hóa kiểu dữ liệu
 
-2. Feature Engineering : Tạo thêm cột (hoặc nhóm) phù hợp
+2. EDA:
 
-3. EDA:
-- Lập biểu đồ phân bố
-- Heatmap
-- Biểu đồ thể hiện tăng trưởng EV
+3. Feature Engineering:
+   - Tạo EV_Count theo Year
+   - Tạo EV_Count theo State/City
+4. Bàn giao clean dataset cho cả nhóm
 
-4.Bàn giao:
-- file clean_ev_population.csv
-- Notebook: EDA.ipynb
-- Mô tả dữ liệu (Data Dictionary)
+II. Classification (BEV/PHEV) + Report đánh giá
+1. Chuẩn bị dữ liệu cho classification
+2. Huấn luyện các mô hình:
+   - Logistic Regression
+   - Decision Tree
+   - Random Forest
+3. Đánh giá:
+   - Accuracy, Precision, Recall, F1-score
+   - Confusion Matrix
+4. So sánh các model (prettytable)
 
+III. Time-series Forecasting (EV Count vs Year)
+1. Tạo chuỗi thời gian EV per year
+2. Huấn luyện 2 mô hình
+   - ARIMA
+   - Prophet
+3. Dự đoán 5-10 năm tiếp theo
+4. Đánh giá
+5. Vẽ biểu đồ actual và predicted
 
-II.Phân loại & hồi quy
-1. Phân loại BEV & PHEV
-- train/test
-- Train model
-- Đánh giá 
-
-2. Hồi quy phân tích yếu tố ảnh hưởng:
-- Xây mô hình
-- Tính (R^2, p-value, kiểm định độ quan trọng biến)
-
-3. Xuất kết quả
-- Biểu đồ quan trọng của biến 
-- Bảng so sánh mô hinh 
-
-4. Bàn giao
-- Notebook Classification_Model.ipynb
-- Notebook Regression_Analysis.ipynb
-- Kết quả, bảng đánh giá
-
-
-III. Dự báo tương lai
-1. Chuẩn bị dữ liệu chuỗi thời gian
-- Tạo series EV_Count theo: Năm, (tùy chọn) Theo khu vực
-- Resample/aggregate nếu cần
-
-2. Huấn luyện mô hình dự báo : ARIMA, Prophet
-
-3. Đánh giá mô hình: 
-- MAE
-- RMSE
-- So sánh mô hình
-
-4. Trực quan hóa: 
-- Biểu đồ và dự báo 
-- Dự báo 5-10 năm tiếp theo
-
-5.Bàn giao:
-- Notebook EV_Forecasting.ipynb
-- Biểu đồ dự báo
-- File dự báo forecast.csv
-
-
-IV. Phân cụm & demo:
-
-1. Phân cụm khu vực
--Chuẩn hóa dữ liệu
-- Áp dụng:
-    - K-Means
-    - (tùy chọn) DBSCAN
-- Xác định số cụm bằng:
-    - Elbow Method
-    - Silhouette Score
-    - Davies-Bouldin Index
-    
-2. Trực quan hóa
-- Biểu đồ scatter
-- Map chart (nếu có tọa độ hoặc state-level)
-
-3. Xây ứng dụng Demo
-- Ứng dụng có tính năng:
-- Tải dữ liệu lên
-- Hiển thị biểu đồ EDA
-- Phân loại BEV/PHEV (dùng model của Người 2)
-- Dự báo số lượng EV (dùng model của Người 3)
-- Hiển thị bản đồ phân cụm (của Người 4)
-- Xuất báo cáo PDF
-- Ứng dụng xây bằng:
-- Streamlit / Flask / Dash / React
-
-4. Bàn giao
-- Folder app/
-- File run_app.py
-
-
+IV . Clustering + Visualization
+1. Tạo dữ liệu EV_Count theo khu vực (từ dataset của Người 1)
+2. Chuẩn hóa dữ liệu clustering
+3. Huấn luyện K-Means 3–5 cụm
+4. Đánh giá:
+   - Silhouette Score
+   - Davies-Bouldin Index
+5. Trực quan hóa:
+   - Scatter clustering
